@@ -1,3 +1,4 @@
 /compiled_corpus/*
 /annotations_conll_final/*
 .idea
+__pycache__
