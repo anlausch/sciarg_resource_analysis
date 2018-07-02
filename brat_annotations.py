@@ -87,15 +87,28 @@ def parse_annotations(path):
                 with codecs.open(os.path.join(subdir, file), mode="r", encoding="utf8") as ann_file:
                     for line in ann_file:
                         try:
+                            # TODO: This is an extension to our other paper
                             id, info, text = line.split("\t")
+
                             label, start, end = info.split(" ")
                             file = file
                             annotations.append(Annotation(id=id, label=label, start=start, end=end, file=file, text=text))
+                            #
+
                         except Exception as e:
-                            print("\n")
-                            print(e)
-                            print(file)
-                            print(line)
-                            print("\n")
+                            # we ignore errors here because brat also shows these as errors and we adviced our annotators to resolve these with parts_of_same
+                            #label, start, middle, end = info.split(" ")
+                            #middle_start, middle_end = middle.split(";")
+                            #if(int(middle_end)-int(middle_start) != 1):
+                            #    print("Problem")
+                            #file = file
+                            #annotations.append(
+                            #    Annotation(id=id, label=label, start=start, end=end, file=file, text=text))
+                            continue
+                            #print("\n")
+                            #print(e)
+                            #print(file)
+                            #print(line)
+                            #print("\n")
 
     return annotations
