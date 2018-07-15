@@ -17,6 +17,7 @@ class Stats:
 
 
     def compute_stats(self, with_parts_of_same=True):
+        self.total = [self.calculate_span_length(ann) for ann in self.total]
         self.entities = [ann for ann in self.total if ann.type == Type.ENTITY]
         self.relations = [ann for ann in self.total if ann.type == Type.RELATION]
         self.claims = [ann for ann in self.total if ann.label == Label.BACKGROUND_CLAIM or ann.label == Label.OWN_CLAIM]
@@ -221,97 +222,124 @@ class Stats:
 
     def group_to_string(self, f):
         f.write("GROUP: " + self.group_characteristic + "\n")
-        f.write("Number of annotations: " + str(len(self.total)) + "\n")
-        f.write("\tNumber of entities: " + str(len(self.entities)) + "\n")
-        f.write("\t\tNumber of claims: " + str(len(self.claims)) + "\n")
-        f.write("\t\t\tNumber of background_claims: " + str(len(self.background_claims)) + "\n")
-        f.write("\t\t\tNumber of own_claims: " + str(len(self.own_claims)) + "\n")
-        f.write("\t\tNumber of data: " + str(len(self.data)) + "\n")
-        f.write("\tNumber of relations: " + str(len(self.relations)) + "\n")
-        f.write("\t\tNumber of supports: " + str(len(self.supports)) + "\n")
-        f.write("\t\tNumber of contradicts: " + str(len(self.contradicts)) + "\n")
-        f.write("\t\tNumber of semantically_same: " + str(len(self.semantically_same)) + "\n")
+        f.write("Number of annotations: " + str(len(self.total)) + ", percent: " +str(len(self.total)/len(self.total)) + "\n")
+        f.write("\tNumber of entities: " + str(len(self.entities)) + ", percent: " +str(len(self.entities)/len(self.entities)) + "\n")
+        f.write("\t\tNumber of claims: " + str(len(self.claims))+ ", percent: " +str(len(self.claims)/len(self.entities)) + "\n")
+        f.write("\t\t\tNumber of background_claims: " + str(len(self.background_claims)) + ", percent: " +str(len(self.background_claims)/len(self.entities)) + "\n")
+        f.write("\t\t\tNumber of own_claims: " + str(len(self.own_claims)) + ", percent: " +str(len(self.own_claims)/len(self.entities)) + "\n")
+        f.write("\t\tNumber of data: " + str(len(self.data))+ ", percent: " +str(len(self.data)/len(self.entities)) + "\n")
+        f.write("\tNumber of relations: " + str(len(self.relations)) + ", percent: " +str(len(self.relations)/len(self.relations)) + "\n")
+        f.write("\t\tNumber of supports: " + str(len(self.supports)) + ", percent: " +str(len(self.supports)/len(self.relations)) + "\n")
+        f.write("\t\tNumber of contradicts: " + str(len(self.contradicts)) + ", percent: " +str(len(self.contradicts)/len(self.relations)) + "\n")
+        f.write("\t\tNumber of semantically_same: " + str(len(self.semantically_same)) + ", percent: " +str(len(self.semantically_same)/len(self.relations)) + "\n")
         f.write("\t\tNumber of parts_of_same: " + str(len(self.parts_of_same)) + "\n" + "\n")
 
+
+        f.write("\tMin, max, avg, median, std span length for entities: " + str(self.calculate_min_max_avg_median_std_span_length(self.entities)) + "\n")
+        f.write("\t\tMin, max, avg, median, std span length for claims: " + str(self.calculate_min_max_avg_median_std_span_length(self.claims)) + "\n")
+        f.write("\t\t\tMin, max, avg, median, std span length for background_claims: " + str(self.calculate_min_max_avg_median_std_span_length(self.background_claims)) + "\n")
+        f.write("\t\t\tMin, max, avg, median, std span length for own_claims: " + str(self.calculate_min_max_avg_median_std_span_length(self.own_claims)) + "\n")
+        f.write("\t\tMin, max, avg, median, std span length for data: " + str(self.calculate_min_max_avg_median_std_span_length(self.data)) + "\n\n")
+
         f.write("Number of files: " + str(len(self.grouped_by_file)) + "\n")
-        f.write("\nMin, max, avg, median of total per file: " + str(self.get_min_max_avg_median_for_property(self.grouped_by_file, "total")) + "\n")
-        f.write("\tMin, max, avg, median of entities per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "entities")) + "\n")
-        f.write("\t\tMin, max, avg, median of claims per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "claims")) + "\n")
-        f.write("\t\t\tMin, max, avg, median of background_claims per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "background_claims")) + "\n")
-        f.write("\t\t\tMin, max, avg, median of own_claims per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "own_claims")) + "\n")
-        f.write("\t\tMin, max, avg, median of data per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "data")) + "\n")
-        f.write("\tMin, max, avg, median of relations per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "relations")) + "\n")
-        f.write("\t\tMin, max, avg, median of supports relations per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "supports")) + "\n")
-        f.write("\t\tMin, max, avg, median of contradicts relations per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "contradicts")) + "\n")
-        f.write("\t\tMin, max, avg, median of semantically_same relations per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "semantically_same")) + "\n")
-        f.write("\t\tMin, max, avg, median of parts_of_same relations per file: " + str(
-            self.get_min_max_avg_median_for_property(self.grouped_by_file, "parts_of_same")) + "\n" + "\n")
+        f.write("\nMin, max, avg, median, std of total per file: " + str(self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "total")) + "\n")
+        f.write("\tMin, max, avg, median, std of entities per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "entities")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of claims per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "claims")) + "\n")
+        f.write("\t\t\tMin, max, avg, median, std of background_claims per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "background_claims")) + "\n")
+        f.write("\t\t\tMin, max, avg, median, std of own_claims per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "own_claims")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of data per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "data")) + "\n")
+        f.write("\tMin, max, avg, median, std of relations per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "relations")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of supports relations per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "supports")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of contradicts relations per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "contradicts")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of semantically_same relations per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "semantically_same")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of parts_of_same relations per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "parts_of_same")) + "\n" + "\n")
+
 
         f.write("For every file: " + "\n")
         for file_graph in self.file_graphs:
             f.write("\tFile: " + str(file_graph["file"]) + "\n")
-            f.write("\t\tDiameter of the argumentation graph: " + str(self.get_min_max_avg_median_for_property(file_graph, "diameter")) + "\n")
-            f.write("\t\tUnsupported Claims: " + str(len(file_graph["unsupported_claims"])) + "\n" + "\n")
-            f.write("\t\tStandalone Claims: " + str(len(file_graph["standalone_claims"])) + "\n" + "\n")
+            f.write("\t\tDiameter of the argumentation graph: " + str(file_graph["diameter"]) + "\n")
+            f.write("\t\tUnsupported Claims: " + str(len(file_graph["unsupported_claims"])) + "\n")
+            f.write("\t\tStandalone Claims: " + str(len(file_graph["standalone_claims"])) + "\n")
+            f.write("\t\tMax in-Degree: " + str(file_graph["max_indegree"]) + "\n")
+            f.write("\t\tMax PageRank: " + str(max(file_graph["max_pagerank"])) + "\n")
 
 
 
-        # print("\nMin, max, avg, median of total per domain: " + str(self.get_min_max_avg_median_for_property(self.grouped_by_domain, "total")))
-        # print("\tMin, max, avg, median of entities per domain: " + str(
+        # print("\nMin, max, avg, median, std of total per domain: " + str(self.get_min_max_avg_median_for_property(self.grouped_by_domain, "total")))
+        # print("\tMin, max, avg, median, std of entities per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "entities")))
-        # print("\t\tMin, max, avg, median of claims per domain: " + str(
+        # print("\t\tMin, max, avg, median, std of claims per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "claims")))
-        # print("\t\t\tMin, max, avg, median of background_claims per domain: " + str(
+        # print("\t\t\tMin, max, avg, median, std of background_claims per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "background_claims")))
-        # print("\t\t\tMin, max, avg, median of own_claims per domain: " + str(
+        # print("\t\t\tMin, max, avg, median, std of own_claims per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "own_claims")))
-        # print("\t\tMin, max, avg, median of data per domain: " + str(
+        # print("\t\tMin, max, avg, median, std of data per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "data")))
-        # print("\tMin, max, avg, median of relations per domain: " + str(
+        # print("\tMin, max, avg, median, std of relations per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "relations")))
-        # print("\t\tMin, max, avg, median of supports relations per domain: " + str(
+        # print("\t\tMin, max, avg, median, std of supports relations per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "supports")))
-        # print("\t\tMin, max, avg, median of contradicts relations per domain: " + str(
+        # print("\t\tMin, max, avg, median, std of contradicts relations per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "contradicts")))
-        # print("\t\tMin, max, avg, median of semantically_same relations per domain: " + str(
+        # print("\t\tMin, max, avg, median, std of semantically_same relations per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "semantically_same")))
-        # print("\t\tMin, max, avg, median of parts_of_same relations per domain: " + str(
+        # print("\t\tMin, max, avg, median, std of parts_of_same relations per domain: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_domain, "parts_of_same")))
         #
         #
-        # print("\nMin, max, avg, median of total per publication_type: " + str(self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "total")))
-        # print("\tMin, max, avg, median of entities per publication_type: " + str(
+        # print("\nMin, max, avg, median, std of total per publication_type: " + str(self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "total")))
+        # print("\tMin, max, avg, median, std of entities per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "entities")))
-        # print("\t\tMin, max, avg, median of claims per publication_type: " + str(
+        # print("\t\tMin, max, avg, median, std of claims per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "claims")))
-        # print("\t\t\tMin, max, avg, median of background_claims per publication_type: " + str(
+        # print("\t\t\tMin, max, avg, median, std of background_claims per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "background_claims")))
-        # print("\t\t\tMin, max, avg, median of own_claims per publication_type: " + str(
+        # print("\t\t\tMin, max, avg, median, std of own_claims per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "own_claims")))
-        # print("\t\tMin, max, avg, median of data per publication_type: " + str(
+        # print("\t\tMin, max, avg, median, std of data per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "data")))
-        # print("\tMin, max, avg, median of relations per publication_type: " + str(
+        # print("\tMin, max, avg, median, std of relations per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "relations")))
-        # print("\t\tMin, max, avg, median of supports relations per publication_type: " + str(
+        # print("\t\tMin, max, avg, median, std of supports relations per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "supports")))
-        # print("\t\tMin, max, avg, median of contradicts relations per publication_type: " + str(
+        # print("\t\tMin, max, avg, median, std of contradicts relations per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "contradicts")))
-        # print("\t\tMin, max, avg, median of semantically_same relations per publication_type: " + str(
+        # print("\t\tMin, max, avg, median, std of semantically_same relations per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "semantically_same")))
-        # print("\t\tMin, max, avg, median of parts_of_same relations per publication_type: " + str(
+        # print("\t\tMin, max, avg, median, std of parts_of_same relations per publication_type: " + str(
         #     self.get_min_max_avg_median_for_property(self.grouped_by_publication_type, "parts_of_same")))
+
+    def calculate_span_length(self, entity):
+        if hasattr(entity, "span_list"):
+            lengths = [int(span["end"])-int(span["start"]) for span in entity.span_list]
+            entity.total_length = sum(lengths)
+        else:
+            entity.total_length = 0
+        return entity
+    
+    
+    def calculate_min_max_avg_median_std_span_length(self, group):
+        values = []
+        for entity in group:
+            values.append(entity.total_length)
+        return np.min(values), np.max(values), np.average(values), np.median(values), np.std(values)
+        
 
 
     def to_string(self):
+        ## Eventually also example for semantically same
         with codecs.open("./results/overview.txt", "w", "utf8") as f:
             f.write("GENERAL\n")
             f.write("-------\n")
@@ -373,6 +401,7 @@ class Stats:
                     if claim["label"] == Label.OWN_CLAIM:
                         self.output_component(f, claim)
             f.close()
+
 
 
     ''' Groups a given list by computer graphics domain'''
@@ -446,13 +475,13 @@ class Stats:
 
 
     '''
-    Computes min, max, avg, median for a group of stats given a certain component type
+    Computes Min, max, avg, median, std for a group of stats given a certain component type
     '''
-    def get_min_max_avg_median_for_property(self, grouped_stats, prop):
+    def get_min_max_avg_median_std_count_for_property(self, grouped_stats, prop):
         values = []
         for stats in grouped_stats:
             values.append(len(getattr(stats,prop)))
-        return np.min(values), np.max(values), np.average(values), np.median(values)
+        return np.min(values), np.max(values), np.average(values), np.median(values), np.std(values)
 
 
     '''
@@ -481,13 +510,13 @@ class Stats:
         standalone_claims_indices = g.vs.select(_degree_eq=0, label_in=[Label.BACKGROUND_CLAIM, Label.OWN_CLAIM]).indices
         standalone_claims = self.vertex_index_to_vertex(g, standalone_claims_indices)
         diameter = g.diameter(directed=True, unconn=True)
-        max_degree = np.max(g.indegree())
-        max_indegree_indices = g.vs.select(_indegree = max_degree).indices
+        max_indegree = np.max(g.indegree())
+        max_indegree_indices = g.vs.select(_indegree = max_indegree).indices
         max_indegree_vertices = self.vertex_index_to_vertex(g, max_indegree_indices)
         max_pagerank = g.pagerank(directed=True)
         max_pagerank_indices = np.argmax(g.pagerank(directed=True))
         max_pagerank_vertices = self.vertex_index_to_vertex(g, max_pagerank_indices)
-        return {"graph": g, "unsupported_claims": unsupported_claims, "standalone_claims": standalone_claims,"diameter": diameter, "max_degree": max_degree,
+        return {"graph": g, "unsupported_claims": unsupported_claims, "standalone_claims": standalone_claims,"diameter": diameter, "max_indegree": max_indegree,
                 "max_indegree_vertices":max_indegree_vertices, "max_pagerank": max_pagerank, "max_pagerank_vertices": max_pagerank_vertices}
 
 
@@ -517,7 +546,11 @@ class Stats:
     def create_graph(self, entities, relations):
         g = Graph(directed=True)
         vertices = entities
-        relations = relations
+
+        ### We exclude the semantically_same relationships here because for the graph stats they are not relevant
+        ## TODO: Verify this
+        relations = [relation for relation in relations if relation.label != Label.SEMANTICALLY_SAME]
+
         g.add_vertices(len(vertices))
         g.vs['id'] = [entity.id for entity in vertices]
         g.vs['label'] = [entity.label for entity in vertices]
