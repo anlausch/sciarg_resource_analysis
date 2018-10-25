@@ -1,0 +1,1050 @@
+GENERAL
+-------
+GROUP: ALL
+Number of annotations: 18819, percent: 1.0
+	Number of entities: 12289, percent: 1.0
+		Number of claims: 8196, percent: 0.6669379119537798
+			Number of background_claims: 2751, percent: 0.2238587354544715
+			Number of own_claims: 5445, percent: 0.44307917649930834
+		Number of data: 4093, percent: 0.3330620880462202
+	Number of relations: 6530, percent: 1.0
+		Number of supports: 5790, percent: 0.886676875957121
+		Number of contradicts: 696, percent: 0.10658499234303216
+		Number of semantically_same: 44, percent: 0.006738131699846861
+		Number of parts_of_same: 0
+
+	Min, max, avg, median, std span length for entities: (1, 500, 66.14533322483521, 60.0, 48.51722648456707)
+		Min, max, avg, median, std span length for claims: (3, 500, 86.29197169350903, 79.0, 43.93836957717279)
+			Min, max, avg, median, std span length for background_claims: (5, 340, 87.46128680479825, 80.0, 43.7409579462073)
+			Min, max, avg, median, std span length for own_claims: (3, 500, 85.70119375573921, 78.0, 44.025964545146564)
+		Min, max, avg, median, std span length for data: (1, 244, 25.80283410701197, 18.0, 27.592652647368617)
+
+Number of files: 40
+
+Min, max, avg, median, std of total per file: (287, 823, 470.475, 439.5, 123.54674975490046)
+	Min, max, avg, median, std of entities per file: (177, 498, 307.225, 291.0, 76.73639537403356)
+		Min, max, avg, median, std of claims per file: (118, 329, 204.9, 202.5, 54.123377573835874)
+			Min, max, avg, median, std of background_claims per file: (24, 152, 68.775, 58.5, 25.239341809960102)
+			Min, max, avg, median, std of own_claims per file: (62, 261, 136.125, 133.0, 46.03106967038676)
+		Min, max, avg, median, std of data per file: (46, 169, 102.325, 96.5, 32.04714300838688)
+	Min, max, avg, median, std of relations per file: (95, 325, 163.25, 150.0, 48.928391553371135)
+		Min, max, avg, median, std of supports relations per file: (80, 300, 144.75, 134.0, 43.12293473315563)
+		Min, max, avg, median, std of contradicts relations per file: (5, 37, 17.4, 14.5, 9.107140056021978)
+		Min, max, avg, median, std of semantically_same relations per file: (0, 9, 1.1, 0.0, 1.8138357147217055)
+		Min, max, avg, median, std of parts_of_same relations per file: (0, 0, 0.0, 0.0, 0.0)
+
+statistics of file graphs: 
+		Min, max, avg, median, std of file graph diameter per file: (2, 5, 3.05, 3.0, 0.7053367989832942)
+		Min, max, avg, median, std of file graph max indegree per file: (3, 11, 6.325, 6.0, 1.9670726981990267)
+		Min, max, avg, median, std of file graph max pagerank per file: (0.00832679085480456, 0.030790255851119445, 0.016923037235848648, 0.01636595235815591, 0.005101718688597015)
+		Min, max, avg, median, std of file graph num standalone claims per file: (27, 127, 63.0, 63.0, 21.399766353864706)
+		Min, max, avg, median, std of file graph num unsupported claims per file: (39, 180, 94.375, 93.0, 29.139052403947524)
+For every file: 
+	File: A01.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 46
+		Standalone Claims: 27
+		Max in-Degree: 4
+		Max PageRank: 0.02875752728833886
+	File: A02.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 79
+		Standalone Claims: 32
+		Max in-Degree: 3
+		Max PageRank: 0.016547470822280367
+	File: A03.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 96
+		Standalone Claims: 39
+		Max in-Degree: 6
+		Max PageRank: 0.013347224409898724
+	File: A04.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 96
+		Standalone Claims: 66
+		Max in-Degree: 5
+		Max PageRank: 0.01788998738918691
+	File: A05.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 139
+		Standalone Claims: 76
+		Max in-Degree: 5
+		Max PageRank: 0.01429878382198072
+	File: A06.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 113
+		Standalone Claims: 67
+		Max in-Degree: 7
+		Max PageRank: 0.022321282772681292
+	File: A07.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 126
+		Standalone Claims: 93
+		Max in-Degree: 5
+		Max PageRank: 0.015894986515904732
+	File: A08.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 126
+		Standalone Claims: 83
+		Max in-Degree: 5
+		Max PageRank: 0.011308425180631899
+	File: A09.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 50
+		Standalone Claims: 29
+		Max in-Degree: 8
+		Max PageRank: 0.02247275851296271
+	File: A10.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 98
+		Standalone Claims: 62
+		Max in-Degree: 7
+		Max PageRank: 0.017231889160521867
+	File: A11.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 180
+		Standalone Claims: 127
+		Max in-Degree: 7
+		Max PageRank: 0.011033092331703173
+	File: A12.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 92
+		Standalone Claims: 58
+		Max in-Degree: 5
+		Max PageRank: 0.013683818618322602
+	File: A13.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 112
+		Standalone Claims: 80
+		Max in-Degree: 5
+		Max PageRank: 0.013882449679400267
+	File: A14.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 135
+		Standalone Claims: 85
+		Max in-Degree: 5
+		Max PageRank: 0.012565013897288124
+	File: A15.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 82
+		Standalone Claims: 53
+		Max in-Degree: 6
+		Max PageRank: 0.015696383763942313
+	File: A16.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 94
+		Standalone Claims: 75
+		Max in-Degree: 5
+		Max PageRank: 0.01266716153445161
+	File: A17.ann
+		Diameter of the argumentation graph: 5
+		Unsupported Claims: 121
+		Standalone Claims: 79
+		Max in-Degree: 5
+		Max PageRank: 0.018732177883644223
+	File: A18.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 65
+		Standalone Claims: 41
+		Max in-Degree: 6
+		Max PageRank: 0.013041283113215101
+	File: A19.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 112
+		Standalone Claims: 87
+		Max in-Degree: 8
+		Max PageRank: 0.0131516273031155
+	File: A20.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 77
+		Standalone Claims: 65
+		Max in-Degree: 10
+		Max PageRank: 0.018058184420634043
+	File: A21.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 81
+		Standalone Claims: 59
+		Max in-Degree: 11
+		Max PageRank: 0.028271989935171587
+	File: A22.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 124
+		Standalone Claims: 87
+		Max in-Degree: 10
+		Max PageRank: 0.015771687229470817
+	File: A23.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 75
+		Standalone Claims: 58
+		Max in-Degree: 10
+		Max PageRank: 0.030790255851119445
+	File: A24.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 40
+		Standalone Claims: 27
+		Max in-Degree: 4
+		Max PageRank: 0.016541059890351314
+	File: A25.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 73
+		Standalone Claims: 49
+		Max in-Degree: 10
+		Max PageRank: 0.0243304445732464
+	File: A26.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 125
+		Standalone Claims: 85
+		Max in-Degree: 5
+		Max PageRank: 0.00832679085480456
+	File: A27.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 109
+		Standalone Claims: 77
+		Max in-Degree: 4
+		Max PageRank: 0.012574513268719983
+	File: A28.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 105
+		Standalone Claims: 87
+		Max in-Degree: 4
+		Max PageRank: 0.011475367081344705
+	File: A29.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 92
+		Standalone Claims: 71
+		Max in-Degree: 9
+		Max PageRank: 0.016190844825960508
+	File: A30.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 87
+		Standalone Claims: 58
+		Max in-Degree: 7
+		Max PageRank: 0.011371091902964502
+	File: A31.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 97
+		Standalone Claims: 75
+		Max in-Degree: 6
+		Max PageRank: 0.014898553082441843
+	File: A32.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 84
+		Standalone Claims: 64
+		Max in-Degree: 7
+		Max PageRank: 0.023606334649513866
+	File: A33.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 82
+		Standalone Claims: 44
+		Max in-Degree: 9
+		Max PageRank: 0.017653953679886286
+	File: A34.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 63
+		Standalone Claims: 37
+		Max in-Degree: 6
+		Max PageRank: 0.01751769625350921
+	File: A35.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 129
+		Standalone Claims: 76
+		Max in-Degree: 7
+		Max PageRank: 0.01929260673305035
+	File: A36.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 84
+		Standalone Claims: 58
+		Max in-Degree: 5
+		Max PageRank: 0.01706678508534399
+	File: A37.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 39
+		Standalone Claims: 35
+		Max in-Degree: 5
+		Max PageRank: 0.021388293291722184
+	File: A38.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 61
+		Standalone Claims: 38
+		Max in-Degree: 5
+		Max PageRank: 0.01849854196554907
+	File: A39.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 109
+		Standalone Claims: 59
+		Max in-Degree: 6
+		Max PageRank: 0.009974652636253478
+	File: A40.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 77
+		Standalone Claims: 52
+		Max in-Degree: 6
+		Max PageRank: 0.018798498223416723
+
+
+BY DOMAIN
+-------
+GROUP: CLOTH_SIMULATION
+Number of annotations: 4350, percent: 1.0
+	Number of entities: 2803, percent: 1.0
+		Number of claims: 1868, percent: 0.6664288262575812
+			Number of background_claims: 577, percent: 0.2058508740635034
+			Number of own_claims: 1291, percent: 0.46057795219407777
+		Number of data: 935, percent: 0.33357117374241885
+	Number of relations: 1547, percent: 1.0
+		Number of supports: 1386, percent: 0.8959276018099548
+		Number of contradicts: 156, percent: 0.10084033613445378
+		Number of semantically_same: 5, percent: 0.003232062055591467
+		Number of parts_of_same: 0
+
+	Min, max, avg, median, std span length for entities: (1, 359, 65.95397788084196, 59.0, 51.310082862284574)
+		Min, max, avg, median, std span length for claims: (5, 359, 87.21038543897217, 79.0, 46.31799543983417)
+			Min, max, avg, median, std span length for background_claims: (10, 300, 93.08145580589255, 87.0, 46.69680165952463)
+			Min, max, avg, median, std span length for own_claims: (5, 359, 84.58636715724245, 76.0, 45.90552990945627)
+		Min, max, avg, median, std span length for data: (1, 244, 23.486631016042782, 12.0, 30.00398517002537)
+
+Number of files: 10
+
+Min, max, avg, median, std of total per file: (311, 823, 435.0, 395.0, 142.69057432080086)
+	Min, max, avg, median, std of entities per file: (216, 498, 280.3, 258.5, 80.94325172613217)
+		Min, max, avg, median, std of claims per file: (123, 329, 186.8, 168.5, 54.97053756331659)
+			Min, max, avg, median, std of background_claims per file: (24, 79, 57.7, 57.5, 15.146286673637205)
+			Min, max, avg, median, std of own_claims per file: (65, 261, 129.1, 124.0, 52.53465522871545)
+		Min, max, avg, median, std of data per file: (46, 169, 93.5, 93.5, 32.407560846197605)
+	Min, max, avg, median, std of relations per file: (95, 325, 154.7, 138.0, 62.79498387610271)
+		Min, max, avg, median, std of supports relations per file: (80, 300, 138.6, 119.0, 58.297855878239645)
+		Min, max, avg, median, std of contradicts relations per file: (7, 27, 15.6, 13.5, 6.829348431585549)
+		Min, max, avg, median, std of semantically_same relations per file: (0, 3, 0.5, 0.0, 1.02469507659596)
+		Min, max, avg, median, std of parts_of_same relations per file: (0, 0, 0.0, 0.0, 0.0)
+
+statistics of file graphs: 
+		Min, max, avg, median, std of file graph diameter per file: (2, 4, 3.2, 3.0, 0.6)
+		Min, max, avg, median, std of file graph max indegree per file: (5, 9, 6.2, 6.0, 1.1661903789690602)
+		Min, max, avg, median, std of file graph max pagerank per file: (0.009974652636253478, 0.023606334649513866, 0.017869591560068697, 0.01807624782271768, 0.00347198588734546)
+		Min, max, avg, median, std of file graph num standalone claims per file: (35, 76, 53.8, 55.0, 14.406942770761603)
+		Min, max, avg, median, std of file graph num unsupported claims per file: (39, 129, 82.5, 83.0, 24.17540072056718)
+For every file: 
+	File: A31.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 97
+		Standalone Claims: 75
+		Max in-Degree: 6
+		Max PageRank: 0.014898553082441843
+	File: A32.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 84
+		Standalone Claims: 64
+		Max in-Degree: 7
+		Max PageRank: 0.023606334649513866
+	File: A33.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 82
+		Standalone Claims: 44
+		Max in-Degree: 9
+		Max PageRank: 0.017653953679886286
+	File: A34.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 63
+		Standalone Claims: 37
+		Max in-Degree: 6
+		Max PageRank: 0.01751769625350921
+	File: A35.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 129
+		Standalone Claims: 76
+		Max in-Degree: 7
+		Max PageRank: 0.01929260673305035
+	File: A36.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 84
+		Standalone Claims: 58
+		Max in-Degree: 5
+		Max PageRank: 0.01706678508534399
+	File: A37.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 39
+		Standalone Claims: 35
+		Max in-Degree: 5
+		Max PageRank: 0.021388293291722184
+	File: A38.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 61
+		Standalone Claims: 38
+		Max in-Degree: 5
+		Max PageRank: 0.01849854196554907
+	File: A39.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 109
+		Standalone Claims: 59
+		Max in-Degree: 6
+		Max PageRank: 0.009974652636253478
+	File: A40.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 77
+		Standalone Claims: 52
+		Max in-Degree: 6
+		Max PageRank: 0.018798498223416723
+GROUP: FLUID_SIMULATION
+Number of annotations: 4748, percent: 1.0
+	Number of entities: 3159, percent: 1.0
+		Number of claims: 1988, percent: 0.6293130737575182
+			Number of background_claims: 691, percent: 0.2187401076289965
+			Number of own_claims: 1297, percent: 0.4105729661285217
+		Number of data: 1171, percent: 0.3706869262424818
+	Number of relations: 1589, percent: 1.0
+		Number of supports: 1386, percent: 0.8722466960352423
+		Number of contradicts: 192, percent: 0.12083071113908118
+		Number of semantically_same: 11, percent: 0.006922592825676526
+		Number of parts_of_same: 0
+
+	Min, max, avg, median, std span length for entities: (1, 500, 58.768597657486545, 52.0, 44.11139401865411)
+		Min, max, avg, median, std span length for claims: (3, 500, 78.3963782696177, 72.0, 40.71828458023141)
+			Min, max, avg, median, std span length for background_claims: (5, 249, 80.22575976845152, 73.0, 38.91786559702692)
+			Min, max, avg, median, std span length for own_claims: (3, 500, 77.42174248265228, 71.0, 41.61289746968672)
+		Min, max, avg, median, std span length for data: (1, 236, 25.4466268146883, 19.0, 25.88596509457996)
+
+Number of files: 10
+
+Min, max, avg, median, std of total per file: (317, 650, 474.8, 443.5, 121.52761003163026)
+	Min, max, avg, median, std of entities per file: (207, 431, 315.9, 307.5, 78.09282937632622)
+		Min, max, avg, median, std of claims per file: (118, 269, 198.8, 209.5, 49.482926348388084)
+			Min, max, avg, median, std of background_claims per file: (39, 112, 69.1, 61.0, 21.892692844874063)
+			Min, max, avg, median, std of own_claims per file: (64, 169, 129.7, 139.0, 35.1370175171428)
+		Min, max, avg, median, std of data per file: (85, 162, 117.1, 103.5, 30.797564838798536)
+	Min, max, avg, median, std of relations per file: (110, 226, 158.9, 143.5, 44.349633594878775)
+		Min, max, avg, median, std of supports relations per file: (101, 191, 138.6, 124.0, 36.15577408934844)
+		Min, max, avg, median, std of contradicts relations per file: (5, 36, 19.2, 16.5, 10.156771140475698)
+		Min, max, avg, median, std of semantically_same relations per file: (0, 5, 1.1, 0.5, 1.5132745950421556)
+		Min, max, avg, median, std of parts_of_same relations per file: (0, 0, 0.0, 0.0, 0.0)
+
+statistics of file graphs: 
+		Min, max, avg, median, std of file graph diameter per file: (2, 4, 2.8, 3.0, 0.6)
+		Min, max, avg, median, std of file graph max indegree per file: (4, 11, 7.4, 8.0, 2.7640549922170505)
+		Min, max, avg, median, std of file graph max pagerank per file: (0.00832679085480456, 0.030790255851119445, 0.01756440454131538, 0.015981266027715664, 0.007260637586567519)
+		Min, max, avg, median, std of file graph num standalone claims per file: (27, 87, 65.8, 65.0, 18.37280599146467)
+		Min, max, avg, median, std of file graph num unsupported claims per file: (40, 125, 91.1, 89.5, 24.62295676802443)
+For every file: 
+	File: A21.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 81
+		Standalone Claims: 59
+		Max in-Degree: 11
+		Max PageRank: 0.028271989935171587
+	File: A22.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 124
+		Standalone Claims: 87
+		Max in-Degree: 10
+		Max PageRank: 0.015771687229470817
+	File: A23.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 75
+		Standalone Claims: 58
+		Max in-Degree: 10
+		Max PageRank: 0.030790255851119445
+	File: A24.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 40
+		Standalone Claims: 27
+		Max in-Degree: 4
+		Max PageRank: 0.016541059890351314
+	File: A25.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 73
+		Standalone Claims: 49
+		Max in-Degree: 10
+		Max PageRank: 0.0243304445732464
+	File: A26.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 125
+		Standalone Claims: 85
+		Max in-Degree: 5
+		Max PageRank: 0.00832679085480456
+	File: A27.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 109
+		Standalone Claims: 77
+		Max in-Degree: 4
+		Max PageRank: 0.012574513268719983
+	File: A28.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 105
+		Standalone Claims: 87
+		Max in-Degree: 4
+		Max PageRank: 0.011475367081344705
+	File: A29.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 92
+		Standalone Claims: 71
+		Max in-Degree: 9
+		Max PageRank: 0.016190844825960508
+	File: A30.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 87
+		Standalone Claims: 58
+		Max in-Degree: 7
+		Max PageRank: 0.011371091902964502
+GROUP: MOTION
+Number of annotations: 5020, percent: 1.0
+	Number of entities: 3309, percent: 1.0
+		Number of claims: 2206, percent: 0.6666666666666666
+			Number of background_claims: 621, percent: 0.18766999093381687
+			Number of own_claims: 1585, percent: 0.4789966757328498
+		Number of data: 1103, percent: 0.3333333333333333
+	Number of relations: 1711, percent: 1.0
+		Number of supports: 1569, percent: 0.9170075978959673
+		Number of contradicts: 136, percent: 0.07948568088836938
+		Number of semantically_same: 6, percent: 0.0035067212156633548
+		Number of parts_of_same: 0
+
+	Min, max, avg, median, std span length for entities: (1, 340, 73.77455424599577, 69.0, 50.470077420772036)
+		Min, max, avg, median, std span length for claims: (4, 340, 95.43291024478694, 88.0, 44.23688382587382)
+			Min, max, avg, median, std span length for background_claims: (9, 340, 95.62157809983897, 88.0, 46.12658614990431)
+			Min, max, avg, median, std span length for own_claims: (4, 291, 95.3589905362776, 88.0, 43.473888855613026)
+		Min, max, avg, median, std span length for data: (1, 204, 30.457842248413417, 19.0, 30.22211203582919)
+
+Number of files: 10
+
+Min, max, avg, median, std of total per file: (407, 653, 502.0, 489.5, 82.3201068998334)
+	Min, max, avg, median, std of entities per file: (267, 441, 330.9, 319.0, 55.289149025826035)
+		Min, max, avg, median, std of claims per file: (169, 324, 220.6, 205.5, 45.422901712682346)
+			Min, max, avg, median, std of background_claims per file: (39, 107, 62.1, 56.5, 18.398097727754358)
+			Min, max, avg, median, std of own_claims per file: (122, 217, 158.5, 152.5, 29.234397548093924)
+		Min, max, avg, median, std of data per file: (64, 166, 110.3, 110.5, 29.21660486778024)
+	Min, max, avg, median, std of relations per file: (137, 212, 171.1, 170.5, 28.32119347767675)
+		Min, max, avg, median, std of supports relations per file: (127, 192, 156.9, 155.5, 24.622956768024427)
+		Min, max, avg, median, std of contradicts relations per file: (6, 26, 13.6, 12.0, 6.7111846942250075)
+		Min, max, avg, median, std of semantically_same relations per file: (0, 2, 0.6, 0.0, 0.8)
+		Min, max, avg, median, std of parts_of_same relations per file: (0, 0, 0.0, 0.0, 0.0)
+
+statistics of file graphs: 
+		Min, max, avg, median, std of file graph diameter per file: (2, 5, 3.2, 3.0, 0.8717797887081347)
+		Min, max, avg, median, std of file graph max indegree per file: (5, 10, 6.2, 5.5, 1.6)
+		Min, max, avg, median, std of file graph max pagerank per file: (0.011033092331703173, 0.018732177883644223, 0.014251119254571695, 0.013417722960719051, 0.002355850696393286)
+		Min, max, avg, median, std of file graph num standalone claims per file: (41, 127, 75.0, 77.0, 22.400892839349062)
+		Min, max, avg, median, std of file graph num unsupported claims per file: (65, 180, 107.0, 103.0, 31.68911485037094)
+For every file: 
+	File: A11.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 180
+		Standalone Claims: 127
+		Max in-Degree: 7
+		Max PageRank: 0.011033092331703173
+	File: A12.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 92
+		Standalone Claims: 58
+		Max in-Degree: 5
+		Max PageRank: 0.013683818618322602
+	File: A13.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 112
+		Standalone Claims: 80
+		Max in-Degree: 5
+		Max PageRank: 0.013882449679400267
+	File: A14.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 135
+		Standalone Claims: 85
+		Max in-Degree: 5
+		Max PageRank: 0.012565013897288124
+	File: A15.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 82
+		Standalone Claims: 53
+		Max in-Degree: 6
+		Max PageRank: 0.015696383763942313
+	File: A16.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 94
+		Standalone Claims: 75
+		Max in-Degree: 5
+		Max PageRank: 0.01266716153445161
+	File: A17.ann
+		Diameter of the argumentation graph: 5
+		Unsupported Claims: 121
+		Standalone Claims: 79
+		Max in-Degree: 5
+		Max PageRank: 0.018732177883644223
+	File: A18.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 65
+		Standalone Claims: 41
+		Max in-Degree: 6
+		Max PageRank: 0.013041283113215101
+	File: A19.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 112
+		Standalone Claims: 87
+		Max in-Degree: 8
+		Max PageRank: 0.0131516273031155
+	File: A20.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 77
+		Standalone Claims: 65
+		Max in-Degree: 10
+		Max PageRank: 0.018058184420634043
+GROUP: SKINNING
+Number of annotations: 4701, percent: 1.0
+	Number of entities: 3018, percent: 1.0
+		Number of claims: 2134, percent: 0.707090788601723
+			Number of background_claims: 862, percent: 0.28561961563949634
+			Number of own_claims: 1272, percent: 0.42147117296222664
+		Number of data: 884, percent: 0.292909211398277
+	Number of relations: 1683, percent: 1.0
+		Number of supports: 1449, percent: 0.8609625668449198
+		Number of contradicts: 212, percent: 0.1259655377302436
+		Number of semantically_same: 22, percent: 0.013071895424836602
+		Number of parts_of_same: 0
+
+	Min, max, avg, median, std span length for entities: (1, 330, 65.67958913187542, 61.0, 46.78866648765861)
+		Min, max, avg, median, std span length for claims: (5, 330, 83.39409559512653, 76.5, 42.61138205678574)
+			Min, max, avg, median, std span length for background_claims: (5, 324, 83.62064965197216, 77.0, 42.114540429491015)
+			Min, max, avg, median, std span length for own_claims: (8, 330, 83.24056603773585, 76.0, 42.94413134864489)
+		Min, max, avg, median, std span length for data: (1, 163, 22.91628959276018, 17.0, 22.460317078047957)
+
+Number of files: 10
+
+Min, max, avg, median, std of total per file: (287, 713, 470.1, 444.0, 129.9149337066374)
+	Min, max, avg, median, std of entities per file: (177, 433, 301.8, 286.0, 80.35272241809857)
+		Min, max, avg, median, std of claims per file: (119, 302, 213.4, 214.0, 59.162826166436645)
+			Min, max, avg, median, std of background_claims per file: (40, 152, 86.2, 82.5, 32.09298988875919)
+			Min, max, avg, median, std of own_claims per file: (62, 242, 127.2, 105.0, 54.36322286251984)
+		Min, max, avg, median, std of data per file: (58, 140, 88.4, 82.5, 26.496037439587074)
+	Min, max, avg, median, std of relations per file: (110, 280, 168.3, 153.5, 51.813222250695816)
+		Min, max, avg, median, std of supports relations per file: (93, 240, 144.9, 136.5, 43.6221274125873)
+		Min, max, avg, median, std of contradicts relations per file: (8, 37, 21.2, 18.5, 10.077698149875298)
+		Min, max, avg, median, std of semantically_same relations per file: (0, 9, 2.2, 1.0, 2.7129319932501073)
+		Min, max, avg, median, std of parts_of_same relations per file: (0, 0, 0.0, 0.0, 0.0)
+
+statistics of file graphs: 
+		Min, max, avg, median, std of file graph diameter per file: (2, 4, 3.0, 3.0, 0.6324555320336759)
+		Min, max, avg, median, std of file graph max indegree per file: (3, 8, 5.5, 5.0, 1.4317821063276353)
+		Min, max, avg, median, std of file graph max pagerank per file: (0.011308425180631899, 0.02875752728833886, 0.018007033587438808, 0.01688967999140112, 0.004915999058489249)
+		Min, max, avg, median, std of file graph num standalone claims per file: (27, 93, 57.4, 64.0, 22.73851358378555)
+		Min, max, avg, median, std of file graph num unsupported claims per file: (46, 139, 96.9, 97.0, 29.730287586903696)
+For every file: 
+	File: A01.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 46
+		Standalone Claims: 27
+		Max in-Degree: 4
+		Max PageRank: 0.02875752728833886
+	File: A02.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 79
+		Standalone Claims: 32
+		Max in-Degree: 3
+		Max PageRank: 0.016547470822280367
+	File: A03.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 96
+		Standalone Claims: 39
+		Max in-Degree: 6
+		Max PageRank: 0.013347224409898724
+	File: A04.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 96
+		Standalone Claims: 66
+		Max in-Degree: 5
+		Max PageRank: 0.01788998738918691
+	File: A05.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 139
+		Standalone Claims: 76
+		Max in-Degree: 5
+		Max PageRank: 0.01429878382198072
+	File: A06.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 113
+		Standalone Claims: 67
+		Max in-Degree: 7
+		Max PageRank: 0.022321282772681292
+	File: A07.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 126
+		Standalone Claims: 93
+		Max in-Degree: 5
+		Max PageRank: 0.015894986515904732
+	File: A08.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 126
+		Standalone Claims: 83
+		Max in-Degree: 5
+		Max PageRank: 0.011308425180631899
+	File: A09.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 50
+		Standalone Claims: 29
+		Max in-Degree: 8
+		Max PageRank: 0.02247275851296271
+	File: A10.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 98
+		Standalone Claims: 62
+		Max in-Degree: 7
+		Max PageRank: 0.017231889160521867
+
+
+BY PUBLICATION TYPE
+-------
+GROUP: CONFERENCE_PAPER
+Number of annotations: 6351, percent: 1.0
+	Number of entities: 4110, percent: 1.0
+		Number of claims: 2846, percent: 0.6924574209245742
+			Number of background_claims: 934, percent: 0.2272506082725061
+			Number of own_claims: 1912, percent: 0.46520681265206815
+		Number of data: 1264, percent: 0.3075425790754258
+	Number of relations: 2241, percent: 1.0
+		Number of supports: 1980, percent: 0.8835341365461847
+		Number of contradicts: 242, percent: 0.10798750557786703
+		Number of semantically_same: 19, percent: 0.008478357875948238
+		Number of parts_of_same: 0
+
+	Min, max, avg, median, std span length for entities: (1, 359, 70.61654501216545, 65.0, 52.13375011875756)
+		Min, max, avg, median, std span length for claims: (4, 359, 91.29655657062544, 84.0, 46.42163583347224)
+			Min, max, avg, median, std span length for background_claims: (12, 340, 95.76659528907923, 88.0, 47.111684673055635)
+			Min, max, avg, median, std span length for own_claims: (4, 359, 89.11297071129707, 82.0, 45.92287967653763)
+		Min, max, avg, median, std span length for data: (1, 244, 24.053797468354432, 15.0, 29.23132236314706)
+
+Number of files: 14
+
+Min, max, avg, median, std of total per file: (287, 823, 453.64285714285717, 419.0, 144.13614949705274)
+	Min, max, avg, median, std of entities per file: (177, 498, 293.57142857142856, 268.0, 89.34660780651167)
+		Min, max, avg, median, std of claims per file: (119, 329, 203.28571428571428, 186.0, 65.98531067207152)
+			Min, max, avg, median, std of background_claims per file: (24, 152, 66.71428571428571, 63.0, 31.040132021600154)
+			Min, max, avg, median, std of own_claims per file: (62, 261, 136.57142857142858, 125.5, 52.43188000459575)
+		Min, max, avg, median, std of data per file: (46, 169, 90.28571428571429, 84.5, 31.171022650231166)
+	Min, max, avg, median, std of relations per file: (95, 325, 160.07142857142858, 151.0, 57.189489900698014)
+		Min, max, avg, median, std of supports relations per file: (80, 300, 141.42857142857142, 137.5, 53.02386832592373)
+		Min, max, avg, median, std of contradicts relations per file: (7, 31, 17.285714285714285, 17.0, 7.175639059928206)
+		Min, max, avg, median, std of semantically_same relations per file: (0, 9, 1.3571428571428572, 0.0, 2.5525097693150904)
+		Min, max, avg, median, std of parts_of_same relations per file: (0, 0, 0.0, 0.0, 0.0)
+
+statistics of file graphs: 
+		Min, max, avg, median, std of file graph diameter per file: (2, 4, 3.0714285714285716, 3.0, 0.7034898429854359)
+		Min, max, avg, median, std of file graph max indegree per file: (3, 10, 6.142857142857143, 6.0, 1.6842608746502281)
+		Min, max, avg, median, std of file graph max pagerank per file: (0.009974652636253478, 0.030790255851119445, 0.018409067286292637, 0.01800811910952914, 0.006342562195166682)
+		Min, max, avg, median, std of file graph num standalone claims per file: (27, 127, 58.785714285714285, 58.5, 26.934254800024693)
+		Min, max, avg, median, std of file graph num unsupported claims per file: (46, 180, 93.92857142857143, 81.5, 37.53943504734014)
+For every file: 
+	File: A01.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 46
+		Standalone Claims: 27
+		Max in-Degree: 4
+		Max PageRank: 0.02875752728833886
+	File: A02.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 79
+		Standalone Claims: 32
+		Max in-Degree: 3
+		Max PageRank: 0.016547470822280367
+	File: A06.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 113
+		Standalone Claims: 67
+		Max in-Degree: 7
+		Max PageRank: 0.022321282772681292
+	File: A08.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 126
+		Standalone Claims: 83
+		Max in-Degree: 5
+		Max PageRank: 0.011308425180631899
+	File: A09.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 50
+		Standalone Claims: 29
+		Max in-Degree: 8
+		Max PageRank: 0.02247275851296271
+	File: A11.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 180
+		Standalone Claims: 127
+		Max in-Degree: 7
+		Max PageRank: 0.011033092331703173
+	File: A14.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 135
+		Standalone Claims: 85
+		Max in-Degree: 5
+		Max PageRank: 0.012565013897288124
+	File: A18.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 65
+		Standalone Claims: 41
+		Max in-Degree: 6
+		Max PageRank: 0.013041283113215101
+	File: A23.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 75
+		Standalone Claims: 58
+		Max in-Degree: 10
+		Max PageRank: 0.030790255851119445
+	File: A32.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 84
+		Standalone Claims: 64
+		Max in-Degree: 7
+		Max PageRank: 0.023606334649513866
+	File: A34.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 63
+		Standalone Claims: 37
+		Max in-Degree: 6
+		Max PageRank: 0.01751769625350921
+	File: A35.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 129
+		Standalone Claims: 76
+		Max in-Degree: 7
+		Max PageRank: 0.01929260673305035
+	File: A38.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 61
+		Standalone Claims: 38
+		Max in-Degree: 5
+		Max PageRank: 0.01849854196554907
+	File: A39.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 109
+		Standalone Claims: 59
+		Max in-Degree: 6
+		Max PageRank: 0.009974652636253478
+GROUP: JOURNAL_ARTICLE
+Number of annotations: 12151, percent: 1.0
+	Number of entities: 7972, percent: 1.0
+		Number of claims: 5232, percent: 0.6562970396387355
+			Number of background_claims: 1763, percent: 0.2211490215755143
+			Number of own_claims: 3469, percent: 0.4351480180632213
+		Number of data: 2740, percent: 0.3437029603612644
+	Number of relations: 4179, percent: 1.0
+		Number of supports: 3706, percent: 0.8868150275185451
+		Number of contradicts: 449, percent: 0.10744197176357981
+		Number of semantically_same: 24, percent: 0.00574300071787509
+		Number of parts_of_same: 0
+
+	Min, max, avg, median, std span length for entities: (1, 500, 64.50765178123432, 58.0, 46.53192276364102)
+		Min, max, avg, median, std span length for claims: (3, 500, 84.20355504587155, 77.0, 42.34927900585531)
+			Min, max, avg, median, std span length for background_claims: (5, 314, 84.12138400453772, 79.0, 41.2294468215225)
+			Min, max, avg, median, std span length for own_claims: (3, 500, 84.24531565292591, 77.0, 42.90713535927251)
+		Min, max, avg, median, std span length for data: (1, 236, 26.8985401459854, 19.0, 26.83091006833543)
+
+Number of files: 25
+
+Min, max, avg, median, std of total per file: (331, 713, 486.04, 470.0, 106.98055150353264)
+	Min, max, avg, median, std of entities per file: (216, 433, 318.88, 305.0, 65.64408274932326)
+		Min, max, avg, median, std of claims per file: (123, 302, 209.28, 209.0, 43.885779017809405)
+			Min, max, avg, median, std of background_claims per file: (39, 114, 70.52, 58.0, 21.576134964353557)
+			Min, max, avg, median, std of own_claims per file: (65, 242, 138.76, 145.0, 40.44183972076444)
+		Min, max, avg, median, std of data per file: (61, 166, 109.6, 105.0, 30.950282712763705)
+	Min, max, avg, median, std of relations per file: (113, 280, 167.16, 151.0, 43.17932838755137)
+		Min, max, avg, median, std of supports relations per file: (98, 240, 148.24, 133.0, 36.278125640666715)
+		Min, max, avg, median, std of contradicts relations per file: (6, 37, 17.96, 14.0, 9.869062772117726)
+		Min, max, avg, median, std of semantically_same relations per file: (0, 5, 0.96, 0.0, 1.2483589227461789)
+		Min, max, avg, median, std of parts_of_same relations per file: (0, 0, 0.0, 0.0, 0.0)
+
+statistics of file graphs: 
+		Min, max, avg, median, std of file graph diameter per file: (2, 5, 3.04, 3.0, 0.72)
+		Min, max, avg, median, std of file graph max indegree per file: (4, 11, 6.52, 6.0, 2.0807690885823926)
+		Min, max, avg, median, std of file graph max pagerank per file: (0.00832679085480456, 0.028271989935171587, 0.016106139501419904, 0.015771687229470817, 0.004148074548763732)
+		Min, max, avg, median, std of file graph num standalone claims per file: (35, 93, 66.8, 66.0, 15.81897594662815)
+		Min, max, avg, median, std of file graph num unsupported claims per file: (39, 139, 96.8, 96.0, 21.09786719078495)
+For every file: 
+	File: A03.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 96
+		Standalone Claims: 39
+		Max in-Degree: 6
+		Max PageRank: 0.013347224409898724
+	File: A04.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 96
+		Standalone Claims: 66
+		Max in-Degree: 5
+		Max PageRank: 0.01788998738918691
+	File: A05.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 139
+		Standalone Claims: 76
+		Max in-Degree: 5
+		Max PageRank: 0.01429878382198072
+	File: A07.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 126
+		Standalone Claims: 93
+		Max in-Degree: 5
+		Max PageRank: 0.015894986515904732
+	File: A10.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 98
+		Standalone Claims: 62
+		Max in-Degree: 7
+		Max PageRank: 0.017231889160521867
+	File: A12.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 92
+		Standalone Claims: 58
+		Max in-Degree: 5
+		Max PageRank: 0.013683818618322602
+	File: A13.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 112
+		Standalone Claims: 80
+		Max in-Degree: 5
+		Max PageRank: 0.013882449679400267
+	File: A15.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 82
+		Standalone Claims: 53
+		Max in-Degree: 6
+		Max PageRank: 0.015696383763942313
+	File: A16.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 94
+		Standalone Claims: 75
+		Max in-Degree: 5
+		Max PageRank: 0.01266716153445161
+	File: A17.ann
+		Diameter of the argumentation graph: 5
+		Unsupported Claims: 121
+		Standalone Claims: 79
+		Max in-Degree: 5
+		Max PageRank: 0.018732177883644223
+	File: A19.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 112
+		Standalone Claims: 87
+		Max in-Degree: 8
+		Max PageRank: 0.0131516273031155
+	File: A20.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 77
+		Standalone Claims: 65
+		Max in-Degree: 10
+		Max PageRank: 0.018058184420634043
+	File: A21.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 81
+		Standalone Claims: 59
+		Max in-Degree: 11
+		Max PageRank: 0.028271989935171587
+	File: A22.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 124
+		Standalone Claims: 87
+		Max in-Degree: 10
+		Max PageRank: 0.015771687229470817
+	File: A25.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 73
+		Standalone Claims: 49
+		Max in-Degree: 10
+		Max PageRank: 0.0243304445732464
+	File: A26.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 125
+		Standalone Claims: 85
+		Max in-Degree: 5
+		Max PageRank: 0.00832679085480456
+	File: A27.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 109
+		Standalone Claims: 77
+		Max in-Degree: 4
+		Max PageRank: 0.012574513268719983
+	File: A28.ann
+		Diameter of the argumentation graph: 2
+		Unsupported Claims: 105
+		Standalone Claims: 87
+		Max in-Degree: 4
+		Max PageRank: 0.011475367081344705
+	File: A29.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 92
+		Standalone Claims: 71
+		Max in-Degree: 9
+		Max PageRank: 0.016190844825960508
+	File: A30.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 87
+		Standalone Claims: 58
+		Max in-Degree: 7
+		Max PageRank: 0.011371091902964502
+	File: A31.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 97
+		Standalone Claims: 75
+		Max in-Degree: 6
+		Max PageRank: 0.014898553082441843
+	File: A33.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 82
+		Standalone Claims: 44
+		Max in-Degree: 9
+		Max PageRank: 0.017653953679886286
+	File: A36.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 84
+		Standalone Claims: 58
+		Max in-Degree: 5
+		Max PageRank: 0.01706678508534399
+	File: A37.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 39
+		Standalone Claims: 35
+		Max in-Degree: 5
+		Max PageRank: 0.021388293291722184
+	File: A40.ann
+		Diameter of the argumentation graph: 4
+		Unsupported Claims: 77
+		Standalone Claims: 52
+		Max in-Degree: 6
+		Max PageRank: 0.018798498223416723
+GROUP: TECHNICAL_REPORT
+Number of annotations: 317, percent: 1.0
+	Number of entities: 207, percent: 1.0
+		Number of claims: 118, percent: 0.5700483091787439
+			Number of background_claims: 54, percent: 0.2608695652173913
+			Number of own_claims: 64, percent: 0.30917874396135264
+		Number of data: 89, percent: 0.42995169082125606
+	Number of relations: 110, percent: 1.0
+		Number of supports: 104, percent: 0.9454545454545454
+		Number of contradicts: 5, percent: 0.045454545454545456
+		Number of semantically_same: 1, percent: 0.00909090909090909
+		Number of parts_of_same: 0
+
+	Min, max, avg, median, std span length for entities: (1, 199, 40.43961352657005, 35.0, 35.111485325787704)
+		Min, max, avg, median, std span length for claims: (5, 199, 58.186440677966104, 53.0, 31.79594610993895)
+			Min, max, avg, median, std span length for background_claims: (5, 153, 52.851851851851855, 52.5, 28.78618972342236)
+			Min, max, avg, median, std span length for own_claims: (7, 199, 62.6875, 53.5, 33.47474561143072)
+		Min, max, avg, median, std span length for data: (1, 132, 16.910112359550563, 6.0, 23.5737620521364)
+
+Number of files: 1
+
+Min, max, avg, median, std of total per file: (317, 317, 317.0, 317.0, 0.0)
+	Min, max, avg, median, std of entities per file: (207, 207, 207.0, 207.0, 0.0)
+		Min, max, avg, median, std of claims per file: (118, 118, 118.0, 118.0, 0.0)
+			Min, max, avg, median, std of background_claims per file: (54, 54, 54.0, 54.0, 0.0)
+			Min, max, avg, median, std of own_claims per file: (64, 64, 64.0, 64.0, 0.0)
+		Min, max, avg, median, std of data per file: (89, 89, 89.0, 89.0, 0.0)
+	Min, max, avg, median, std of relations per file: (110, 110, 110.0, 110.0, 0.0)
+		Min, max, avg, median, std of supports relations per file: (104, 104, 104.0, 104.0, 0.0)
+		Min, max, avg, median, std of contradicts relations per file: (5, 5, 5.0, 5.0, 0.0)
+		Min, max, avg, median, std of semantically_same relations per file: (1, 1, 1.0, 1.0, 0.0)
+		Min, max, avg, median, std of parts_of_same relations per file: (0, 0, 0.0, 0.0, 0.0)
+
+statistics of file graphs: 
+		Min, max, avg, median, std of file graph diameter per file: (3, 3, 3.0, 3.0, 0.0)
+		Min, max, avg, median, std of file graph max indegree per file: (4, 4, 4.0, 4.0, 0.0)
+		Min, max, avg, median, std of file graph max pagerank per file: (0.016541059890351314, 0.016541059890351314, 0.016541059890351314, 0.016541059890351314, 0.0)
+		Min, max, avg, median, std of file graph num standalone claims per file: (27, 27, 27.0, 27.0, 0.0)
+		Min, max, avg, median, std of file graph num unsupported claims per file: (40, 40, 40.0, 40.0, 0.0)
+For every file: 
+	File: A24.ann
+		Diameter of the argumentation graph: 3
+		Unsupported Claims: 40
+		Standalone Claims: 27
+		Max in-Degree: 4
+		Max PageRank: 0.016541059890351314
