@@ -1,4 +1,5 @@
 /compiled_corpus/*
 /annotations_conll_final/*
+/annotations_conll_final_without_abstracts/*
 .idea
 __pycache__

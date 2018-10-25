@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.cross_decomposition import CCA
 import codecs
 import pandas as pd
-from sklearn.metrics import mutual_info_score
+from sklearn.metrics import normalized_mutual_info_score
 import matplotlib.pyplot as plt
 
 
@@ -61,7 +61,7 @@ def canonical_correlation_analysis(occurences_a, occurences_b):
 
 
 def mutual_information(occurences_a, occurences_b):
-    score = mutual_info_score(occurences_a, occurences_b)
+    score = normalized_mutual_info_score(occurences_a, occurences_b)
     return score
 
 def information_theoretic_measures(y_arg, y_rhet,y_citation, y_aspect, y_summary):
@@ -73,31 +73,31 @@ def information_theoretic_measures(y_arg, y_rhet,y_citation, y_aspect, y_summary
 
     with codecs.open("results/mutual_information.txt", "w", "utf8") as f:
         f.write("Argumentation & Discourse: ")
-        f.write(str(mutual_info_score(y_arg, y_rhet)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_arg, y_rhet)) + "\n")
         f.write("Argumentation & Aspect: ")
-        f.write(str(mutual_info_score(y_arg, y_aspect)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_arg, y_aspect)) + "\n")
         f.write("Argumentation & Summary: ")
-        f.write(str(mutual_info_score(y_arg, y_summary)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_arg, y_summary)) + "\n")
         f.write("Argumentation & Citation Context: ")
-        f.write(str(mutual_info_score(y_arg, y_citation)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_arg, y_citation)) + "\n")
 
         f.write("Discourse & Aspect: ")
-        f.write(str(mutual_info_score(y_rhet, y_aspect)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_rhet, y_aspect)) + "\n")
         f.write("Discourse & Summary: ")
-        f.write(str(mutual_info_score(y_rhet, y_summary)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_rhet, y_summary)) + "\n")
         f.write("Discourse & Citation Context: ")
-        f.write(str(mutual_info_score(y_rhet, y_citation)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_rhet, y_citation)) + "\n")
 
 
         f.write("Aspect & Summary: ")
-        f.write(str(mutual_info_score(y_aspect, y_summary)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_aspect, y_summary)) + "\n")
         f.write("Aspect & Citation Context: ")
-        f.write(str(mutual_info_score(y_aspect, y_citation)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_aspect, y_citation)) + "\n")
 
         f.write("Summary & Citation Context: ")
-        f.write(str(mutual_info_score(y_summary, y_citation)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_summary, y_citation)) + "\n")
         f.write("Discourse & Argumentation (sanity check): ")
-        f.write(str(mutual_info_score(y_rhet, y_arg)) + "\n")
+        f.write(str(normalized_mutual_info_score(y_rhet, y_arg)) + "\n")
 
 
 
@@ -139,14 +139,43 @@ def plot_sentence_lengths(x):
     plot = plt.hist(lengths)
     plt.show()
 
+def remove_bio_from_arg(y):
+
+    for i,sentence in enumerate(y):
+        for j,token in enumerate(sentence):
+            #sentence.dtype ="S30"
+            token = token.split("Token_Label.")[1]
+            y[i][j] = token
+            if token == "BEGIN_BACKGROUND_CLAIM":
+                y[i][j] = "INSIDE_BACKGROUND_CLAIM"
+            elif token == "BEGIN_OWN_CLAIM":
+                y[i][j] = "INSIDE_OWN_CLAIM"
+            elif token == "BEGIN_DATA":
+                y[i][j] = "INSIDE_DATA"
+    return y
+
+def remove_bio_from_cit(y):
+
+    for i,sentence in enumerate(y):
+        for j,token in enumerate(sentence):
+            #sentence.dtype ="S30"
+            #token = token.split("Token_Label.")[1]
+            #y[i][j] = token
+            if token == "BEGIN_CIT_CONTEXT\n":
+                y[i][j] = "INSIDE_CIT_CONTEXT\n"
+    return y
+
 def main():
-    x, y_arg, y_rhet, y_aspect, y_summary, y_citation = load_conll.load_data_multiple("./annotations_conll_final")
+    x, y_arg, y_rhet, y_aspect, y_summary, y_citation = load_conll.load_data_multiple("./annotations_conll_final_without_abstracts")
+    y_arg = remove_bio_from_arg(y_arg)
+    y_citation = remove_bio_from_cit(y_citation)
+
     # plot_sentence_lengths(x)
-    #print("Number of sentences with more than 200 tokens: " + str(len([len(sentence) for sentence in x if len(sentence) > 200])))
-    #print(str(len([len(sentence) for sentence in x if len(sentence) > 200])/len(x)))
-    compute_correlation_matrices(y_arg=y_arg, y_rhet=y_rhet, y_citation=y_citation, y_aspect=y_aspect, y_summary=y_summary)
+    print("Number of sentences with more than 200 tokens: " + str(len([len(sentence) for sentence in x if len(sentence) > 100])))
+    print(str(len([len(sentence) for sentence in x if len(sentence) > 100])/len(x)))
+    #compute_correlation_matrices(y_arg=y_arg, y_rhet=y_rhet, y_citation=y_citation, y_aspect=y_aspect, y_summary=y_summary)
     #print(canonical_correlation_analysis(y_arg, y_rhet))
-    information_theoretic_measures(y_arg=y_arg, y_rhet=y_rhet, y_citation=y_citation, y_aspect=y_aspect, y_summary=y_summary)
+    #information_theoretic_measures(y_arg=y_arg, y_rhet=y_rhet, y_citation=y_citation, y_aspect=y_aspect, y_summary=y_summary)
 
 if __name__=="__main__":
     main()

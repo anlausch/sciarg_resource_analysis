@@ -6,6 +6,7 @@ import numpy as np
 from igraph import *
 import codecs
 import igraph.remote.gephi as igg
+from nltk import word_tokenize
 
 class Stats:
     def __init__(self, annotations=[], is_first_level=False, is_last_level=False, group_characteristic="ALL"):
@@ -264,6 +265,22 @@ class Stats:
         f.write("\t\tMin, max, avg, median, std of parts_of_same relations per file: " + str(
             self.get_min_max_avg_median_std_count_for_property(self.grouped_by_file, "parts_of_same")) + "\n" + "\n")
 
+        f.write("statistics of file graphs: \n")
+        f.write("\t\tMin, max, avg, median, std of file graph diameter per file: " + str(
+            self.get_min_max_avg_median_std_count_for_file_graph_attribute(self.file_graphs, "diameter")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of file graph max indegree per file: " + str(
+            self.get_min_max_avg_median_std_count_for_file_graph_attribute(self.file_graphs, "max_indegree")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of file graph max pagerank per file: " + str(
+            self.get_min_max_avg_median_std_count_for_file_graph_attribute(self.file_graphs, "max_pagerank")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of file graph num standalone claims per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.file_graphs, "standalone_claims")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of file graph num unsupported claims per file: " + str(
+            self.get_min_max_avg_median_std_count_for_property(self.file_graphs, "unsupported_claims")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of numbers of subgraphs per file: " + str(
+            self.get_min_max_avg_median_std_count_for_file_graph_attribute(self.file_graphs, "num_subgraphs")) + "\n")
+        f.write("\t\tMin, max, avg, median, std of numbers of components per subgraphs per file: " + str(
+            self.get_min_max_avg_median_std_count_for_file_graph_list_attribute(self.file_graphs, "num_components_for_subgraphs")) + "\n")
+
 
         f.write("For every file: " + "\n")
         for file_graph in self.file_graphs:
@@ -272,7 +289,9 @@ class Stats:
             f.write("\t\tUnsupported Claims: " + str(len(file_graph["unsupported_claims"])) + "\n")
             f.write("\t\tStandalone Claims: " + str(len(file_graph["standalone_claims"])) + "\n")
             f.write("\t\tMax in-Degree: " + str(file_graph["max_indegree"]) + "\n")
-            f.write("\t\tMax PageRank: " + str(max(file_graph["max_pagerank"])) + "\n")
+            f.write("\t\tMax PageRank: " + str(file_graph["max_pagerank"]) + "\n")
+            f.write("\t\tNum Subgraphs: " + str(file_graph["num_subgraphs"]) + "\n")
+            f.write("\t\tNum Components for Subgraphs: " + str(file_graph["num_components_for_subgraphs"]) + "\n")
 
 
 
@@ -391,7 +410,7 @@ class Stats:
             f.close()
         with codecs.open("./results/max_pagerank_background_claims.txt", "w", "utf8") as f:
             for file_graph in self.file_graphs:
-                for claim in file_graph["max_indegree_vertices"]:
+                for claim in file_graph["max_pagerank_vertices"]:
                     if claim["label"] == Label.BACKGROUND_CLAIM:
                         self.output_component(f, claim)
             f.close()
@@ -479,8 +498,36 @@ class Stats:
     '''
     def get_min_max_avg_median_std_count_for_property(self, grouped_stats, prop):
         values = []
-        for stats in grouped_stats:
-            values.append(len(getattr(stats,prop)))
+        if isinstance(grouped_stats[0], dict):
+            for stats in grouped_stats:
+                values.append(len(stats[prop]))
+        else:
+            for stats in grouped_stats:
+                values.append(len(getattr(stats,prop)))
+            return np.min(values), np.max(values), np.average(values), np.median(values), np.std(values)
+
+    '''
+    Computes Min, max, avg, median, std for the file graphs
+    '''
+    def get_min_max_avg_median_std_count_for_file_graph_attribute(self, graphs, prop):
+        values = []
+        #if prop != "max_pagerank":
+        for graph in graphs:
+            values.append(graph[prop])
+        #else:
+        #    for graph in graphs:
+        #        values.append(max(graph[prop]))
+        return np.min(values), np.max(values), np.average(values), np.median(values), np.std(values)
+
+
+    def get_min_max_avg_median_std_count_for_file_graph_list_attribute(self, graphs, prop):
+        values = []
+        #if prop != "max_pagerank":
+        for graph in graphs:
+            values = values + graph[prop]
+        #else:
+        #    for graph in graphs:
+        #        values.append(max(graph[prop]))
         return np.min(values), np.max(values), np.average(values), np.median(values), np.std(values)
 
 
@@ -510,14 +557,28 @@ class Stats:
         standalone_claims_indices = g.vs.select(_degree_eq=0, label_in=[Label.BACKGROUND_CLAIM, Label.OWN_CLAIM]).indices
         standalone_claims = self.vertex_index_to_vertex(g, standalone_claims_indices)
         diameter = g.diameter(directed=True, unconn=True)
+
         max_indegree = np.max(g.indegree())
         max_indegree_indices = g.vs.select(_indegree = max_indegree).indices
         max_indegree_vertices = self.vertex_index_to_vertex(g, max_indegree_indices)
-        max_pagerank = g.pagerank(directed=True)
+
+        pageranks = g.pagerank(directed=True)
         max_pagerank_indices = np.argmax(g.pagerank(directed=True))
+        max_pagerank = np.max(g.pagerank(directed=True))
         max_pagerank_vertices = self.vertex_index_to_vertex(g, max_pagerank_indices)
+        #print(max_pagerank)
+
+        g_copy = g
+        g_copy.to_undirected()
+        sgs = g_copy.decompose()
+        num_graphs = len(sgs)
+        num_components = []
+        for sg in sgs:
+            num_components.append(len(sg.vs))
+
         return {"graph": g, "unsupported_claims": unsupported_claims, "standalone_claims": standalone_claims,"diameter": diameter, "max_indegree": max_indegree,
-                "max_indegree_vertices":max_indegree_vertices, "max_pagerank": max_pagerank, "max_pagerank_vertices": max_pagerank_vertices}
+                "max_indegree_vertices":max_indegree_vertices, "max_pagerank": max_pagerank, "max_pagerank_vertices": max_pagerank_vertices, "pageranks": pageranks, "num_subgraphs": num_graphs,
+                "num_components_for_subgraphs": num_components}
 
 
 
@@ -547,8 +608,7 @@ class Stats:
         g = Graph(directed=True)
         vertices = entities
 
-        ### We exclude the semantically_same relationships here because for the graph stats they are not relevant
-        ## TODO: Verify this
+        ### We exclude the semantically_same relationships here because for the graph edges stats (pagerank) they are not relevant
         relations = [relation for relation in relations if relation.label != Label.SEMANTICALLY_SAME]
 
         g.add_vertices(len(vertices))
@@ -604,10 +664,39 @@ def print_parts_of_same_resolved_stats(annotations):
     stats.to_string()
 
 
+'''Reads the plain text documents'''
+def read_text_documents(path="./compiled_corpus"):
+    texts = []
+    for subdir, dirs, files in os.walk(path):
+        for file in files:
+            if '.txt' in file:
+                with codecs.open(os.path.join(subdir, file), mode='r', encoding='utf-8') as f:
+                    texts.append((f.read(), file))
+                f.close()
+    return texts
+
+
+
+def fraction_of_annotated_tokens(annotations, plain_texts):
+    # prepare annotations
+    annotated_texts = [annotation.text for annotation in annotations if annotation.type == Type.ENTITY]
+    annotated_texts_tokenized = [word_tokenize(text) for text in annotated_texts]
+    annotated_tokens_flat = [token for text in annotated_texts_tokenized for token in text]
+
+    # prepare texts
+    plain_texts = [text for (text, file) in plain_texts]
+    plain_texts_tokenized = [word_tokenize(text) for text in plain_texts]
+    plain_tokens_flat = [token for document in plain_texts_tokenized for token in document]
+
+    print("Fraction of annotated text: ", len(annotated_tokens_flat)/ len(plain_tokens_flat))
+
 
 def main():
     annotations = brat_annotations.parse_annotations("./compiled_corpus")
     print_parts_of_same_resolved_stats(annotations=annotations)
+    #texts = read_text_documents()
+    #fraction_of_annotated_tokens(annotations,texts)
+
     #annotations = group_by_file(annotations)
     #for group in annotations:
     #    print(group[0].file)
